@@ -14,7 +14,7 @@ export HOMEBREW_NO_ANALYTICS=1
 export PATH="/usr/local/sbin:$PATH"
 
 # Export tokens in .tokens file.
-source ./.tokens
+source $HOME/.tokens
 
 # Prompt
 export PS1="\w$ "
