@@ -4,4 +4,5 @@ set noexpandtab
 
 set number
 set ruler
+set list
 
