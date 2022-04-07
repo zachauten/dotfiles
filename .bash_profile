@@ -2,6 +2,7 @@
 export EDITOR="/usr/bin/vim"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export GPG_TTY=$(tty)
+#export BOOK_STORE_DIR=$HOME/.config/book
 
 # Prompt
 export PS1="\w$ "
@@ -22,14 +23,15 @@ export HOMEBREW_NO_ANALYTICS=1
 source $HOME/.tokens
 
 # Aliases
-alias ll='ls -alF'
+alias ll='ls -ahlF'
 alias la='ls -A'
 alias l='ls -CF'
 alias vim='vi'
 alias pprint='python -m json.tool'
 alias roll='jot -r 1'
 # Pip will use python3 pip (Homebrew)
-alias pip='pip3'
+#alias pip='pip3'
+alias dk='docker'
 
 # Path
 # PYTHON
@@ -42,4 +44,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+# deno install
+export PATH="/Users/zach/.deno/bin:$PATH"
 
+export PATH="/usr/local/opt/node@16/bin:$PATH"
