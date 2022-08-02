@@ -3,6 +3,7 @@ export EDITOR="/usr/bin/vim"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export GPG_TTY=$(tty)
 #export BOOK_STORE_DIR=$HOME/.config/book
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
 # Prompt
 export PS1="\w$ "
@@ -29,9 +30,10 @@ alias l='ls -CF'
 alias vim='vi'
 alias pprint='python -m json.tool'
 alias roll='jot -r 1'
-# Pip will use python3 pip (Homebrew)
-#alias pip='pip3'
 alias dk='docker'
+alias secret='openssl rand -hex' 
+# Pip will use python3 pip (Homebrew)
+alias pip='pip3'
 
 # Path
 # PYTHON
@@ -48,3 +50,4 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/Users/zach/.deno/bin:$PATH"
 
 export PATH="/usr/local/opt/node@16/bin:$PATH"
+
