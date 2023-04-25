@@ -21,7 +21,7 @@ export HOMEBREW_BUNDLE_FILE="$HOME/.Brewfile"
 export HOMEBREW_NO_ANALYTICS=1
 
 # Export tokens in .tokens file.
-source $HOME/.tokens
+source $HOME/.secrets
 
 # Aliases
 alias ll='ls -ahlF'
