@@ -12,16 +12,17 @@
   in {
 
     devShells.x86_64-darwin.default = pkgs.mkShell {
-      buildInputs = [
-        pkgs.git
-        pkgs.docker
-        pkgs.gnupg
-        pkgs.gh
+      buildInputs = with pkgs; [
+        git
+        docker
+        gnupg
+        gh
+        mysql84
 
         # Languages
-        pkgs.deno
-        pkgs.jdk
-        pkgs.maven
+        deno
+        jdk
+        maven
       ];
     };
   };
