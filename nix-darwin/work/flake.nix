@@ -1,13 +1,17 @@
+# Install the vanilla upstream nix with the determinate systems installer: https://github.com/nix-darwin/nix-darwin
+# Install home manager: https://nix-community.github.io/home-manager/index.xhtml
 {
   description = "Example nix-darwin system flake";
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
-    nix-darwin.url = "github:LnL7/nix-darwin/nix-darwin-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nix-darwin.url = "github:nix-darwin/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     typespec-fix.url = "github:NixOS/nixpkgs/829f8bb29dad98a6af914cd3182bcd6dd4e1f1cd";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, typespec-fix }:
+  outputs = inputs@{ self, nix-darwin, home-manager, nixpkgs, typespec-fix }:
   let
     configuration = { pkgs, ... }:
 
@@ -60,15 +64,14 @@
        # Used for backwards compatibility, please read the changelog before changing.
        # $ darwin-rebuild changelog
        system.stateVersion = 5;
- 
-       # The platform the configuration will be used on.
-       nixpkgs.hostPlatform = "x86_64-darwin";
+
+       nixpkgs.hostPlatform = "aarch64-darwin";
      };
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#zauten-mbp
-    darwinConfigurations."zauten-mbp" = nix-darwin.lib.darwinSystem {
+    # $ darwin-rebuild build --flake .#zauten-mac
+    darwinConfigurations."zauten-mac" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
       ];
