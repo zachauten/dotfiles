@@ -1,5 +1,5 @@
 # Environment variables
-export EDITOR="/usr/bin/nvim"
+export EDITOR="/usr/bin/vim"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export GPG_TTY=$(tty)
 
