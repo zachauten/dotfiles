@@ -1,3 +1,7 @@
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  tmux new -s $(deno run --allow-read get-id.ts) -c "#{pane_current_path}"
+fi
+
 # Environment variables
 export EDITOR="/usr/bin/vim"
 export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -19,3 +23,6 @@ alias dkc='docker compose'
 alias vi='nvim'
 alias vim='nvim'
 
+
+# Added by Antigravity
+export PATH="/Users/zauten/.antigravity/antigravity/bin:$PATH"
