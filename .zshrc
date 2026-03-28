@@ -2,7 +2,10 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
   tmux new -s $(deno run --allow-read get-id.ts) -c "#{pane_current_path}"
 fi
 
+# bindkeys
 bindkey -e
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
 
 # Environment variables
 export EDITOR=$(which nvim)
