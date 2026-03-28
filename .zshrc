@@ -2,10 +2,14 @@ if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
   tmux new -s $(deno run --allow-read get-id.ts) -c "#{pane_current_path}"
 fi
 
+bindkey -e
+
 # Environment variables
-export EDITOR="/usr/bin/vim"
+export EDITOR=$(which nvim)
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export GPG_TTY=$(tty)
+export SHELL=$(which zsh)
+export PROMPT="%B%F{green}%~$%f%b "
 
 # Export tokens in .secrets file.
 touch $HOME/.secrets
@@ -22,6 +26,8 @@ alias dk='docker'
 alias dkc='docker compose'
 alias vi='nvim'
 alias vim='nvim'
+alias tm='tmux'
+alias tm-rm='tmux kill-ses -t'
 
 
 # Added by Antigravity
