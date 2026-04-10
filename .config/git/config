@@ -2,3 +2,4 @@
   st = status
   ch = checkout
   br = branch
+  wt = worktree
