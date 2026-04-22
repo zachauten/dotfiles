@@ -1,5 +1,5 @@
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-  tmux new -s $(deno run --allow-read get-id.ts) -c "#{pane_current_path}"
+  tmux new -s $(awk '{ words[NR] = $0 } END { srand(); for (i=1; i<=3; i++) { idx = int(rand() * NR) + 1; printf tolower("%s%s"), words[idx], (i == 3 ? "" : "-") }; print "" }' /usr/share/dict/words) -c "#{pane_current_path}"
 fi
 
 # bindkeys
